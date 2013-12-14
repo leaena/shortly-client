@@ -1,14 +1,4 @@
 angular.module('shortlyApp')
-.controller('MainController', function($scope, $http) {
-  $scope.order = '-visits';
-  $http({
-    method: 'GET',
-    url: '/links'
-  })
-  .success(function(data){
-    $scope.links = data;
-  });
-})
 .controller('ShortenController', function($scope, $http) {
   $scope.update = false;
   $scope.links = '';
@@ -17,24 +7,20 @@ angular.module('shortlyApp')
     $scope.updated = true;
   });
   $scope.createLink = function(){
+    $scope.errors = '';
     $http({
       method: 'POST',
       url: '/links',
       data: $scope.link 
     })
     .success(function(data){
+      console.log(data);
       $scope.links = data;
       $scope.updated = false;
+      $scope.link = '';
+      if(data.created_at < new Date()){
+        $scope.errors = true;
+      }
     });
   };
-})
-.controller('LinkController', function($scope, $http, $routeParams) {
-  $scope.params = $routeParams;
-  $http({
-    method: 'GET',
-    url: '/clicks'
-  })
-  .success(function(data){
-    $scope.clicks = data;
-  });
 });

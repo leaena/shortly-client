@@ -45,6 +45,8 @@ class Link < ActiveRecord::Base
 
     validates :url, presence: true
 
+    validates_uniqueness_of :url
+
     before_save do |record|
         record.code = Digest::SHA1.hexdigest(url)[0,5]
     end

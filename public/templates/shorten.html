@@ -4,6 +4,11 @@
 <span class="error" ng-show="shortener.input.$error.url">
   Not valid url!
 </span>
+<div class="errors" ng-show="errors">
+    Already saved as 
+  </div>
 </form>
 
-<div ng-show="links.code"> <p>Share your new link: <a ng-href="{{ links.base_url }}/{{ links.code }}">{{ links.base_url }}/{{ links.code }}</p> </a>
+<div ng-show="links.code"> 
+<p>Share your new link: <a ng-href="{{ links.base_url }}/{{ links.code }}">{{ links.base_url }}/{{ links.code }} </a></p>
+</div>
