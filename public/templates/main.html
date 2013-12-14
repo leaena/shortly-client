@@ -1,0 +1,26 @@
+Quick Shorten:
+
+<div ng-controller="ShortenController">
+<form name="shortener">
+<input type="url" name="input" ng-model="link.url" placeholder="URL to shorten" /> 
+<button ng-click="createLink()">Shorten</button>
+<span class="error" ng-show="shortener.input.$error.url">
+  Not valid url!
+</span>
+</form>
+</div>
+Quick Search <input ng-model="searchFilter" /> | 
+Sort by: <select ng-model="order">
+  <option value = 'url'>Alphabetical</option>
+  <option value = '-visits'>Popularity</option>
+  <option value = '-created_at'>Newest</option>
+</select>
+  <div class="link" ng-repeat="link in links | filter: searchFilter | orderBy:order track by link.id">
+<div class="title"><a ng-href="{{ link.base_url }}/{{ link.code }}">{{ link.title }}<a class="info" ng-href="{{ link.base_url }}/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a></a> 
+<span class="visits"> {{ link.visits }}</span><br />
+<a class="original" ng-href="#/link/{{ link.id }}">Link Stats</a>
+
+
+</div>
+
+</div>

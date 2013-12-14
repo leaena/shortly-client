@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Shortly - Not related to Bit.ly</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div ng-app="shortlyApp">
+   <div class="navigation">
+      <ul>
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/shorten">Shorten</a></li>
+      </ul>
+    </div>
+    <div ng-view id="container">
+    </div>
+  </div>
+
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-route.min.js"></script>
+  <script src="client/app.js"></script>
+  <script src="client/controller.js"></script>
+</body>
+</html>

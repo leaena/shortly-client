@@ -1,0 +1,9 @@
+<form name="shortener">
+<input type="url" name="input" ng-model="link.url" placeholder="URL to shorten" /> 
+<button ng-click="createLink()">Shorten</button>
+<span class="error" ng-show="shortener.input.$error.url">
+  Not valid url!
+</span>
+</form>
+
+<div ng-show="links.code"> <p>Share your new link: <a ng-href="{{ links.base_url }}/{{ links.code }}">{{ links.base_url }}/{{ links.code }}</p> </a>

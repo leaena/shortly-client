@@ -1,0 +1,10 @@
+<div ng-controller="MainController">
+  <h3 ng-repeat="link in links | filter:{id: params.link_id} | orderBy:'id' | limitTo:1">
+  {{link.title}} <br /> <a ng-href="{{ link.base_url }}/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a>
+  </h3>
+</div>
+<h4>Clicks:</h4>
+<div ng-repeat="click in clicks | filter:{link_id: params.link_id}">
+<pre>{{ click.updated_at | date:'medium'}}</pre>
+<div>
+
